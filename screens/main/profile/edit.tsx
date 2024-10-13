@@ -51,6 +51,7 @@ export default function EditProfile({navigation}: any) {
                 onChangeText={(newName) => {
                   setData({ ...data, username: newName });
                 }}
+                placeholderTextColor={"black"}
               />
             </View>
             <View style={{ gap: 8 }}>
@@ -62,6 +63,7 @@ export default function EditProfile({navigation}: any) {
                 onChangeText={(newPhoneNumber) => {
                   setData({ ...data, phone: newPhoneNumber });
                 }}
+                placeholderTextColor={"black"}
               />
             </View>
             <TouchableOpacity onPress={(e) => {
@@ -70,7 +72,7 @@ export default function EditProfile({navigation}: any) {
             }}>
               <View style={{ gap: 8 }}>
                 <Text style={{ fontWeight: "700", fontFamily: "PlusJakartaSans", fontSize: 16 }}>Password</Text>
-                <TextInput placeholder="Masukkan Password" style={styles.inputField} defaultValue={"xxxxxxxxxxx"} secureTextEntry={true} />
+                <TextInput placeholder="Masukkan Password" style={styles.inputField} defaultValue={"xxxxxxxxxxx"} secureTextEntry={true} placeholderTextColor={"black"} />
               </View>
             </TouchableOpacity>
           </View>
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
     fontFamily: "PlusJakartaSans",
     fontWeight: "600",
     fontSize: 14,
+    color: "black",
   },
   loading: {},
 });

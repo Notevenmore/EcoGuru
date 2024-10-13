@@ -66,8 +66,8 @@ export default function Home({navigation}: any) {
             <Image source={require("../../assets/images/foto-orang.png")} style={{ borderRadius: 46, width: 46, height: 46 }} />
             {data && (
               <View style={{ flexDirection: "column", gap: 4 }}>
-                <Text style={{ fontWeight: "700", fontSize: 14, fontFamily: "PlusJakartaSans" }}>Hi, {data.username}</Text>
-                <Text style={{ fontWeight: "500", fontSize: 12, fontFamily: "PlusJakartaSans" }}>Daur ulang sampah mu sekarang!</Text>
+                <Text style={{ fontWeight: "700", fontSize: 14, fontFamily: "PlusJakartaSans", color: "black" }}>Hi, {data.username}</Text>
+                <Text style={{ fontWeight: "500", fontSize: 12, fontFamily: "PlusJakartaSans", color: "black" }}>Daur ulang sampah mu sekarang!</Text>
               </View>
             )}
           </View>
@@ -87,18 +87,18 @@ export default function Home({navigation}: any) {
               shadowRadius: 2,
             }}
           >
-            <Text style={{ fontWeight: "600", fontSize: 16 }}>Saldo</Text>
-            <Text style={{ fontWeight: "700", fontSize: 24 }}>Rp 1.000.000</Text>
+            <Text style={{ fontWeight: "600", fontSize: 16, color: "black" }}>Saldo</Text>
+            <Text style={{ fontWeight: "700", fontSize: 24, color: "black" }}>Rp 1.000.000</Text>
             <View style={{ flexDirection: "row", alignSelf: "flex-end", gap: 8 }}>
-              <Text style={{ fontWeight: "600", fontSize: 14, fontFamily: "PlusJakartaSans" }}>Cairkan Saldo</Text>
+              <Text style={{ fontWeight: "600", fontSize: 14, fontFamily: "PlusJakartaSans", color: "black" }}>Cairkan Saldo</Text>
               <Image source={arrow} />
             </View>
           </View>
           <View style={{ width: 330, height: 128, flexDirection: "column", gap: 16, justifyContent: "center", marginTop: 52 }}>
             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-              <Text style={{ fontWeight: "700", fontSize: 16 }}>Tutorial</Text>
+              <Text style={{ fontWeight: "700", fontSize: 16, color: "black" }}>Edukasi</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Text style={{ fontWeight: "500", fontSize: 10, fontFamily: "Inter" }}>Lihat lainnya</Text>
+                <Text style={{ fontWeight: "500", fontSize: 10, fontFamily: "Inter", color: "black" }}>Lihat lainnya</Text>
                 <Image source={arrow2} style={{ width: 8.3, height: 4.8 }} />
               </View>
             </View>
@@ -119,7 +119,7 @@ export default function Home({navigation}: any) {
                 elevation: 100,
               }}
             >
-              <Text style={{ fontWeight: "700", fontSize: 14, marginLeft: 16, fontFamily: "PlusJakartaSans" }}>Cara Pemilahan Sampah</Text>
+              <Text style={{ fontWeight: "700", fontSize: 14, marginLeft: 16, fontFamily: "PlusJakartaSans", color: "black" }}>Cara Pemilahan Sampah</Text>
               <Image source={require("../../assets/images/tutor.png")} style={{ width: 142, height: 128, borderTopRightRadius: 12, borderBottomRightRadius: 12 }} />
             </View>
             <View style={{ alignItems: "center", alignSelf: "center", flexDirection: "row", gap: 3 }}>
@@ -132,9 +132,9 @@ export default function Home({navigation}: any) {
           </View>
           <View style={{ width: 330, height: 128, flexDirection: "column", gap: 16, justifyContent: "center", marginTop: 64 }}>
             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-              <Text style={{ fontWeight: "700", fontSize: 16 }}>Tutorial</Text>
+              <Text style={{ fontWeight: "700", fontSize: 16, color: "black" }}>Tutorial</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Text style={{ fontWeight: "500", fontSize: 10, fontFamily: "Inter" }}>Lihat lainnya</Text>
+                <Text style={{ fontWeight: "500", fontSize: 10, fontFamily: "Inter", color: "black" }}>Lihat lainnya</Text>
                 <Image source={arrow2} style={{ width: 8.3, height: 4.8 }} />
               </View>
             </View>
@@ -155,7 +155,7 @@ export default function Home({navigation}: any) {
                 elevation: 100,
               }}
             >
-              <Text style={{ fontWeight: "700", fontSize: 14, marginLeft: 16, fontFamily: "PlusJakartaSans" }}>Cara Pemilahan Sampah</Text>
+              <Text style={{ fontWeight: "700", fontSize: 14, marginLeft: 16, fontFamily: "PlusJakartaSans", color: "black" }}>Cara Pemilahan Sampah</Text>
               <Image source={require("../../assets/images/tutor.png")} style={{ width: 142, height: 128, borderTopRightRadius: 12, borderBottomRightRadius: 12 }} />
             </View>
           </View>

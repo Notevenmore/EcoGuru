@@ -132,6 +132,7 @@ export default function Login({navigation}: any) {
                       setData({ ...data, username: newText });
                     }}
                     defaultValue={data.username}
+                    placeholderTextColor={"black"}
                   />
                   {error.username.isError && <Text style={{ fontFamily: "PlusJakartaSans", fontWeight: "700", fontSize: 12, color: "#E33629", padding: 4 }}>* {error.username.message}</Text>}
                 </View>
@@ -145,6 +146,7 @@ export default function Login({navigation}: any) {
                       }}
                       defaultValue={data.password}
                       secureTextEntry={hide}
+                      placeholderTextColor={"black"}
                     />
                     <View style={{ position: "absolute", right: 10, width: 40, height: 40, alignItems: "center", justifyContent: "center", zIndex: 10 }}>
                       <TouchableOpacity onPress={() => setHide(!hide)}>{hide ? <Image source={Hide} /> : <Image source={See} />}</TouchableOpacity>
@@ -158,9 +160,9 @@ export default function Login({navigation}: any) {
               <Text style={styles.buttonText}>Masuk Sekarang</Text>
             </TouchableOpacity>
             <View style={{ flexDirection: "row", gap: 1, alignItems: "center", justifyContent: "center" }}>
-              <Text style={{ textAlign: "center" }}>Belum punya akun? Daftar di</Text>
+              <Text style={{ textAlign: "center", color: "black" }}>Belum punya akun? Daftar di</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                <Text style={{ textAlign: "center", color: "blue" }}> sini </Text>
+                <Text style={{ textAlign: "center", color: "#0185FF" }}> sini </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -215,6 +217,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     fontFamily: "PlusJakartaSans",
     maxHeight: 60,
+    color: "black",
   },
   button: {
     backgroundColor: "#236152",
