@@ -2,13 +2,15 @@ import { useState, useEffect, useContext } from "react";
 import { Image, StyleSheet, ScrollView, View, Text, TextInput, SafeAreaView, Dimensions, ActivityIndicator, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import validate from "../../helper/validation";
 import { AuthContext } from "../../context/auth";
-import Success from "../../assets/images/success.png";
-import Failed from "../../assets/images/failed.png";
 import LoginImage from "../../assets/images/login.png";
 import Hide from "../../assets/images/hide.png";
 import See from "../../assets/images/see.png";
 import env_data from "../../env_data";
+import Loading from "../../components/loading";
+import SuccessNotification from "../../components/notification/success_notification";
+import FailedNotification from "../../components/notification/failed_notification";
 
 interface Account {
   username: string;
@@ -31,17 +33,12 @@ export default function Login({navigation}: any) {
   const { setIsLogin } = useContext(AuthContext);
 
   const handleSubmit = () => {
-    let listError = { ...error };
+    let listError = validate(data, "login");
 
-    if (data.username.length < 5 || data.username.length > 10) listError.username = { message: "username harus terdiri dari 5-10 karakter alfanumerik", isError: true };
-    else listError.username = { message: "", isError: false };
-
-    if (!/\d/.test(data.password) || !/[a-zA-Z]/.test(data.password)) listError.password = { message: "kata sandi harus mengandung kombinasi angka dan huruf", isError: true };
-    else listError.password = { message: "", isError: false };
-
-    setError(listError);
-    if (listError.username.isError || listError.password.isError) return;
-
+    if(listError) {
+      setError(listError);
+      return;
+    }
     const formData = new FormData();
     formData.append("username", data.username);
     formData.append("password", data.password);
@@ -50,9 +47,13 @@ export default function Login({navigation}: any) {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        onUploadProgress: () => {
+          setIsLoading(true);
+        }
       })
       .then(async (response) => {
         await AsyncStorage.setItem("user", JSON.stringify(response.data.user));
+        setIsLoading(false);
         setIsSuccess(true);
         setNotification(response.data.message);
         setData({
@@ -61,6 +62,7 @@ export default function Login({navigation}: any) {
         });
       })
       .catch((error) => {
+        setIsLoading(false);
         if (error.response) {
           setNotification(error.response.data.message);
         } else {
@@ -86,30 +88,9 @@ export default function Login({navigation}: any) {
     }
   }, [isSuccess, notification]);
 
-  if (isLoading)
-    return (
-      <View style={{ alignItems: "center", justifyContent: "center", flexGrow: 1 }}>
-        <ActivityIndicator size={90} color="#236152" />
-      </View>
-    );
-  else if (isSuccess)
-    return (
-      <View style={{ flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, gap: 43 }}>
-        <View style={{ backgroundColor: "#6FD73E", borderRadius: 178, width: 178, height: 178, alignItems: "center", justifyContent: "center" }}>
-          <Image source={Success} style={{ width: 100, height: 100 }} />
-        </View>
-        <Text style={{ color: "black", fontWeight: "700", fontSize: 24, fontFamily: "PlusJakartaSans", textAlign: "center" }}>{notification}</Text>
-      </View>
-    );
-  else if (notification !== "")
-    return (
-      <View style={{ flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, gap: 43 }}>
-        <View style={{ backgroundColor: "white", borderRadius: 178, width: 178, height: 178, alignItems: "center", justifyContent: "center" }}>
-          <Image source={Failed} />
-        </View>
-        <Text style={{ color: "black", fontWeight: "700", fontSize: 24, fontFamily: "PlusJakartaSans", textAlign: "center", alignItems: "center", justifyContent: "center" }}>{notification}</Text>
-      </View>
-    );
+  if (isLoading) return <Loading />;
+  else if (isSuccess) return <SuccessNotification notification={notification} />;
+  else if (notification !== "") return <FailedNotification notification={notification} />;
   else
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: "white", paddingTop: 88 }}>
