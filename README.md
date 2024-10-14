@@ -8,7 +8,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 Untuk memulai, jalankan "npm start --reset-cache" diterminal. Metro Server akan segera dijalankan 
 
-## Step 2: Start your Application
+## Step 2: Waiting Metro Server + Running SDK
 
 Sambil menunggu metro server dijalankan, buka android studio, lalu pilih Virtual Device lewat Virtual Device Manager <br/>
 Jika Virtual Device Manager belum tersedia, maka pilih Virtual Device yang ingin digunakan pada SDK Manager
@@ -21,4 +21,3 @@ Setelah Metro Server dijalankan (ditandai dengan adanya logo react di atas), kli
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
