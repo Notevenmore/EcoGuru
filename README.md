@@ -106,3 +106,10 @@ Proses ini dirancang untuk melindungi akun pengguna dari akses yang tidak sah da
     </td>
   </tr>
 </table>
+
+## Teknologi yang Digunakan
+- **Frontend**: React Native
+- **Backend**: ExpressJS, PostgreSQL Databases
+
+## Tujuan Proyek
+Proyek ini dibangun dengan tujuan untuk meningkatkan kesadaran masyarakat akan pentingnya pengolahan sampah dilingkungan sekitar untuk membuat lingkungan disekitarnya lebih baik dalam hal kesehatan, pola hidup, dan sebagainya
